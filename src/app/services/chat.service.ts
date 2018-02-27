@@ -14,7 +14,7 @@ export class ChatService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/${room}/update`, { message: message}, options)
+    return this.httpClient.post(`${this.baseUrl}/${room}/update`, { message: message }, options)
       .toPromise();
   }
 

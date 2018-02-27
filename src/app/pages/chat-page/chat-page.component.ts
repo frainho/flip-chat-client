@@ -10,6 +10,7 @@ import { ChatService } from '../../services/chat.service';
 export class ChatPageComponent implements OnInit {
 
   room = 255699;
+  handler = 'filipe';
   socket = io('http://localhost:3000');
   constructor(private chatService: ChatService) { }
 
@@ -18,7 +19,10 @@ export class ChatPageComponent implements OnInit {
 
   sendMessage(message) {
     this.socket.emit('sending-message', message);
-    this.chatService.update(this.room, message);
+    this.chatService.update(this.room, {
+      message,
+      handler: this.handler
+    });
   }
 
 }
