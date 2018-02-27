@@ -5,7 +5,10 @@
 <div class="chat-body">
   <ul *ngIf="messages">
     <li *ngFor="let message of messages">
-      {{ message }}
+      <p *ngIf="message.isUser" class="isUser"><span class="handler-display">{{ message.handler }}</span>
+      {{ message.message }} </p>
+      <p *ngIf="!message.isUser"><span class="handler-display">{{ message.handler }}</span>
+        {{ message.message }} </p>
     </li>
   </ul>
 </div>

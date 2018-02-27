@@ -10,6 +10,7 @@ import { ChatPageComponent } from './pages/chat-page/chat-page.component';
 
 // => Services
 import { ChatService } from './services/chat.service';
+import { SocketsService } from './services/sockets.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { ChatService } from './services/chat.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [ChatService],
+  providers: [ChatService, SocketsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
