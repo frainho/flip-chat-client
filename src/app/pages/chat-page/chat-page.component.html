@@ -1,0 +1,16 @@
+<div class="chat-container">
+  <div class="chat-header">
+  <h1>Room: 255699</h1>
+</div>
+<div class="chat-body">
+  <ul *ngIf="messages">
+    <li *ngFor="let message of messages">
+      {{ message }}
+    </li>
+  </ul>
+</div>
+<div class="chat-typer">
+  <input type="text" placeholder="Type your message here" #message>
+  <a (click)="sendMessage(message.value)"><img src="../../../assets/img/248-512.png" alt="sendMessage"></a>
+</div>
+</div>
