@@ -5,9 +5,9 @@
       <img src="../../../assets/img/exit.png" alt="disconnectChat">
     </a>
   </div>
-  <div class="chat-body">
+  <div class="chat-body" id="body-scroll">
     <ul *ngIf="messages">
-      <li *ngFor="let message of messages">
+      <li *ngFor="let message of messages" [ngClass]="{'is-user': message.isUser}">
         <p>
           <span class="handler-display">{{ message.handle }}</span>
           {{ message.message }} </p>

@@ -29,6 +29,7 @@ export class ChatPageComponent implements OnInit {
       this.chatService.getRoom(this.roomId, false).then(data => {
         console.log(data.messages);
         this.messages = data.messages;
+        this.identSender(this.messages);
         this.roomId = data.code;
         this.socketsService.joinRoom(this.roomId);
       });
@@ -57,7 +58,7 @@ export class ChatPageComponent implements OnInit {
 
   identSender(messages) {
     for (let i = 0; i < messages.length; i++) {
-      if (messages[i].handler === this.handler) {
+      if (messages[i].handle === localStorage.getItem('handle')) {
         messages[i].isUser = true;
       }
     }

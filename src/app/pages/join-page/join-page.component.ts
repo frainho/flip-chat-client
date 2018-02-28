@@ -10,16 +10,16 @@ import { Router } from '@angular/router';
 })
 export class JoinPageComponent implements OnInit {
   randomRoom = Math.floor(100000 + Math.random() * 900000);
-  constructor(private chatService: ChatService,
-              private router: Router) { }
+  handleName: string = localStorage.getItem('handle');
 
-  ngOnInit() {
-  }
+  constructor(private chatService: ChatService, private router: Router) {}
+
+  ngOnInit() {}
 
   joinChat(room, handle) {
     localStorage.setItem('handle', handle);
-    this.chatService.getRoom(room, false)
+    this.chatService
+      .getRoom(room, false)
       .then(() => this.router.navigate([`/room/${room}`]));
   }
-
 }
