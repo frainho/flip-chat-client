@@ -14,12 +14,19 @@ import { ChatService } from './services/chat.service';
 import { SocketsService } from './services/sockets.service';
 import { DisconnectedComponent } from './pages/disconnected/disconnected.component';
 
+// => Guards
+import { RequireHandleGuardService } from './guards/require-handle-guard.service';
+
 const routes: Routes = [
   { path: '', component: JoinPageComponent },
-  { path: 'room/:id', component: ChatPageComponent },
+  {
+    path: 'room/:id',
+    component: ChatPageComponent,
+    canActivate: [RequireHandleGuardService]
+  },
+  { path: 'disconnect', component: DisconnectedComponent },
   { path: '**', redirectTo: '/' }
 ];
-
 
 @NgModule({
   declarations: [
@@ -28,12 +35,8 @@ const routes: Routes = [
     ChatPageComponent,
     DisconnectedComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes)
-  ],
-  providers: [ChatService, SocketsService],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
+  providers: [ChatService, SocketsService, RequireHandleGuardService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
