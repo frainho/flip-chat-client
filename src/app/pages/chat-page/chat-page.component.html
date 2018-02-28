@@ -1,19 +1,23 @@
 <div class="chat-container">
   <div class="chat-header">
-  <h1>Room: {{roomId}}</h1>
-</div>
-<div class="chat-body">
-  <ul *ngIf="messages">
-    <li *ngFor="let message of messages">
-      <p *ngIf="message.isUser" class="isUser"><span class="handler-display">{{ message.message.handle }}</span>
-      {{ message.message }} </p>
-      <p *ngIf="!message.isUser"><span class="handler-display">{{ message.handle }}</span>
-        {{ message.message }} </p>
-    </li>
-  </ul>
-</div>
-<div class="chat-typer">
-  <input type="text" placeholder="Type your message here" #message>
-  <a (click)="sendMessage(message.value)"><img src="../../../assets/img/248-512.png" alt="sendMessage"></a>
-</div>
+    <h1>Room: {{roomId}}</h1>
+    <a (click)="disconnect()">
+      <img src="../../../assets/img/exit.png" alt="disconnectChat">
+    </a>
+  </div>
+  <div class="chat-body">
+    <ul *ngIf="messages">
+      <li *ngFor="let message of messages">
+        <p>
+          <span class="handler-display">{{ message.handle }}</span>
+          {{ message.message }} </p>
+      </li>
+    </ul>
+  </div>
+  <div class="chat-typer">
+    <input type="text" placeholder="Type your message here" #message>
+    <a (click)="sendMessage(message.value)">
+      <img src="../../../assets/img/248-512.png" alt="sendMessage">
+    </a>
+  </div>
 </div>

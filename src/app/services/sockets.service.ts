@@ -5,11 +5,10 @@ import * as io from 'socket.io-client';
 
 @Injectable()
 export class SocketsService {
-
   private baseUrl = 'http://localhost:3000/api';
   socket = io('http://localhost:3000');
 
-  constructor() { }
+  constructor() {}
 
   emitMessage(fullMessage) {
     this.socket.emit('sending-message', fullMessage);
@@ -22,7 +21,7 @@ export class SocketsService {
   getMessages() {
     const observable = new Observable(observer => {
       /* this.socket = io('http://localhost:3000'); */
-      this.socket.on('new-message', (message) => {
+      this.socket.on('new-message', message => {
         observer.next(message);
       });
       return () => {
@@ -30,5 +29,9 @@ export class SocketsService {
       };
     });
     return observable;
+  }
+
+  disconnect() {
+    this.socket.disconnect();
   }
 }

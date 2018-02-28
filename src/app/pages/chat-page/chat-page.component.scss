@@ -7,10 +7,21 @@
   height: 100vh;
 
   .chat-header {
+    display: flex;
+    justify-content: space-between;
     text-align: center;
     height: 10vh;
     border-bottom: 3px solid $primary-color;
     border-radius: 5px;
+
+    a {
+      height: 100%;
+
+      img {
+        height: 80%;
+        margin: 10% 0;
+      }
+    }
   }
 
   .chat-body {
@@ -21,7 +32,7 @@
       padding-left: 10px;
     }
   }
-  
+
   .chat-body {
     ul {
       li {
@@ -38,6 +49,10 @@
           font-size: 12px;
           font-weight: bold;
         }
+
+        .isUser {
+          color: black;
+        }
       }
     }
   }
@@ -46,7 +61,7 @@
     height: 6vh;
     margin: 5px;
     margin-bottom: 10px;
-    display:flex;
+    display: flex;
     justify-content: space-around;
 
     input {
@@ -70,8 +85,6 @@
       img:active {
         filter: grayscale(0.5) blur(10px);
       }
-
-      
     }
   }
 }

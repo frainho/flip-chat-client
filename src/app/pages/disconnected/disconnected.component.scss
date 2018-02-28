@@ -1,0 +1,29 @@
+@import '../../../sass/abstracts/_variables.scss';
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  color: $primary-color;
+
+  h3 {
+    margin-top: 0px;
+  }
+
+  a {
+    align-self: center;
+    width: 50%;
+    height: 40px;
+    color: white;
+    line-height: 40px;
+    background-color: $primary-color;
+    text-decoration: none;
+  }
+
+  a:active {
+    background-color: $strong-primary-color;
+  }
+}
