@@ -1,0 +1,55 @@
+@import '../../../sass/abstracts/_variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  padding: 10px;
+  text-align: center;
+
+  img {
+    width: 50%;
+    display: block;
+    align-self: center;
+  }
+
+  p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  input {
+    height: 40px;
+    width: 80%;
+    align-self: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+    border: none;
+    border-bottom: 2px solid $primary-color;
+    outline: none;
+    color: $primary-color;
+    text-align: center;
+  }
+
+  a {
+    align-self: center;
+    width: 50%;
+    height: 40px;
+    color: white;
+    line-height: 40px;
+    background-color: $primary-color;
+  }
+
+  a:hover {
+    background-color: $faded-primary-color;
+  }
+
+  a:active {
+    background-color: $strong-primary-color;
+  }
+
+  ::placeholder {
+    color: $faded-primary-color
+  }
+}

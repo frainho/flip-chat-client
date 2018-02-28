@@ -38,10 +38,6 @@
           font-size: 12px;
           font-weight: bold;
         }
-        
-        .isUser {
-          background: black;
-        }
       }
     }
   }
@@ -70,6 +66,12 @@
       img {
         height: 100%;
       }
+
+      img:active {
+        filter: grayscale(0.5) blur(10px);
+      }
+
+      
     }
   }
 }

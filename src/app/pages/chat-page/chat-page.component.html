@@ -1,13 +1,13 @@
 <div class="chat-container">
   <div class="chat-header">
-  <h1>Room: 255699</h1>
+  <h1>Room: {{roomId}}</h1>
 </div>
 <div class="chat-body">
   <ul *ngIf="messages">
     <li *ngFor="let message of messages">
-      <p *ngIf="message.isUser" class="isUser"><span class="handler-display">{{ message.handler }}</span>
+      <p *ngIf="message.isUser" class="isUser"><span class="handler-display">{{ message.message.handle }}</span>
       {{ message.message }} </p>
-      <p *ngIf="!message.isUser"><span class="handler-display">{{ message.handler }}</span>
+      <p *ngIf="!message.isUser"><span class="handler-display">{{ message.handle }}</span>
         {{ message.message }} </p>
     </li>
   </ul>

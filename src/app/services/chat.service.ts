@@ -6,6 +6,8 @@ import 'rxjs/add/operator/toPromise';
 export class ChatService {
 
   private baseUrl = 'http://localhost:3000/api';
+  rooms: any = {};
+  handle: string;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -18,4 +20,19 @@ export class ChatService {
       .toPromise();
   }
 
+  getRoom(room, bypassCache = true): Promise<any> {
+    if (!bypassCache && this.rooms[room]) {
+      return Promise.resolve(this.rooms[room]);
+    }
+    const options = {
+      withCredentials: true
+    };
+    this.rooms[room] = this.httpClient.post(`${this.baseUrl}/${room}`, {room: room}, options)
+      .toPromise()
+      .then(result => {
+        this.rooms[room] = result;
+        return result;
+      });
+    return this.rooms[room];
+  }
 }
