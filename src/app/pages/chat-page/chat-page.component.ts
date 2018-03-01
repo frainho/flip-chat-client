@@ -52,13 +52,15 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage(message) {
-    this.messageText = '';
-    const fullMessage = {
-      message,
-      handle: this.handle
-    };
-    this.socketsService.emitMessage(fullMessage);
-    this.chatService.update(this.roomId, fullMessage);
+    if (this.messageText.length > 0) {
+      this.messageText = '';
+      const fullMessage = {
+        message,
+        handle: this.handle
+      };
+      this.socketsService.emitMessage(fullMessage);
+      this.chatService.update(this.roomId, fullMessage);
+    }
   }
 
   disconnect() {

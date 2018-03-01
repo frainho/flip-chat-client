@@ -19,6 +19,12 @@
     margin-bottom: 10px;
   }
 
+  form {
+    .has-error {
+      border-color: red;
+    }
+  }
+
   input {
     height: 40px;
     width: 80%;
