@@ -3,7 +3,7 @@
   "name": "Flip Chat",
   "start_url": "/",
 
-  "theme_color": "#4fea47",
+  "theme_color": "#343434",
   "background_color": "#343434",
 
   "display": "standalone",

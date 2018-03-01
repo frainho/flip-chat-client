@@ -30,20 +30,20 @@
     outline: none;
     background-color: #343434;
     border-radius: 5px;
-    color: $font-color;
+    color: $secondary-color;
     text-align: center;
   }
 
-  a {
-    align-self: center;
+  button {
+    border: none;
+    border-radius: 5px;
     width: 50%;
-    height: 40px;
-    color: $font-color;
+    color: $primary-color;
     line-height: 40px;
-    background-color: $primary-color;
+    background-color: $secondary-color;
   }
 
-  a:active {
+  button:active {
     background-color: $strong-primary-color;
   }
 

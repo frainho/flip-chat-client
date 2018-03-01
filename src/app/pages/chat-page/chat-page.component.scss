@@ -1,7 +1,7 @@
 @import '../../../sass/abstracts/_variables.scss';
 
 .chat-container {
-  color: $font-color;
+  color: $secondary-color;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -65,32 +65,33 @@
   }
 
   .chat-typer {
-    height: 6vh;
-    margin: 5px;
+    width: 100%;
     margin-bottom: 10px;
+    padding: 0 10px;
+    min-height: 30px;
     display: flex;
-    justify-content: space-around;
 
-    input {
-      border: none;
-      background: $primary-color;
-      width: 80%;
-      border-radius: 25px;
-      padding-left: 10px;
-      outline: none;
-      color: $font-color;
-    }
+    form {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
 
-    a {
-      width: 20%;
-      text-align: center;
-
-      img {
-        height: 100%;
+      input {
+        border: none;
+        background: $primary-color;
+        width: 80%;
+        border-radius: 25px;
+        padding-left: 10px;
+        outline: none;
+        color: $secondary-color;
       }
 
-      img:active {
-        filter: grayscale(0.5) blur(10px);
+      button {
+        width: 15%;
+        border: none;
+        border-radius: 5px;
+        background-color: $secondary-color;
+        color: $primary-color;
       }
     }
   }

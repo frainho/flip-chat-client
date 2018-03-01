@@ -21,6 +21,7 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
   messages: Array<Object> = [];
   handle: string = localStorage.getItem('handle');
   connection;
+  messageText: string;
 
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
@@ -51,6 +52,7 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage(message) {
+    this.messageText = '';
     const fullMessage = {
       message,
       handle: this.handle

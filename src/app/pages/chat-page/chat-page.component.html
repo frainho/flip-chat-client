@@ -15,9 +15,9 @@
     </ul>
   </div>
   <div class="chat-typer">
-    <input type="text" placeholder="Type your message here" #message>
-    <a (click)="sendMessage(message.value)">
-      <img src="../../../assets/img/248-512.png" alt="sendMessage">
-    </a>
+    <form (ngSubmit)="sendMessage(message.value)" #form="ngForm" novalidate>
+      <input type="text" [(ngModel)]="messageText" name="messageInput" placeholder="Type your message here" #message>
+      <button type="submit" [disabled]="processing">Send</button>
+    </form>
   </div>
 </div>

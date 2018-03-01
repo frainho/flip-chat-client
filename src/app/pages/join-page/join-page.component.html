@@ -1,7 +1,9 @@
 <div class="container">
   <img src="../../../assets/img/248-512.png" alt="logo">
   <p>Share this code and hit join or input a code to join a room</p>
-  <input type="text" value={{handleName}} placeholder="Your handle here...." #handle required>
-  <input type="text" value={{randomRoom}} #roomCode>
-  <a (click)="joinChat(roomCode.value, handle.value)">Join</a>
+  <form (ngSubmit)="joinChat(roomCode.value, handle.value)" #form="ngForm" novalidate>
+    <input type="text" value={{handleName}} placeholder="Your handle here...." #handle>
+    <input type="text" value={{randomRoom}} #roomCode>
+    <button>Join Room</button>
+  </form>
 </div>
