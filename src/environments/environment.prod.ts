@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://flip-chat-server.herokuapp.com/'
+  apiUrl: 'https://flip-chat-server.herokuapp.com'
 };
