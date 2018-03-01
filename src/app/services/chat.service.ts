@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ChatService {
-  apiUrl = environment.apiUrl + '/api';
+  apiUrl = environment.apiUrl + 'api';
   private baseUrl = this.apiUrl;
   rooms: any = {};
   handle: string;
