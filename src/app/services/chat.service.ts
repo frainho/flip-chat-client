@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ChatService {
-  private baseUrl = 'http://localhost:3000/api';
+  apiUrl = environment.apiUrl + '/api';
+  private baseUrl = this.apiUrl;
   rooms: any = {};
   handle: string;
 

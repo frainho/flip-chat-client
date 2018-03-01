@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import * as io from 'socket.io-client';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class SocketsService {
-  private baseUrl = 'http://localhost:3000/api';
-  socket = io('http://localhost:3000');
+  apiUrl = environment.apiUrl;
+  socket = io(this.apiUrl);
 
   constructor() {}
 
