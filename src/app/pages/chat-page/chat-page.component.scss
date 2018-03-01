@@ -1,9 +1,7 @@
 @import '../../../sass/abstracts/_variables.scss';
 
-$view-heigth: 6vh;
-$demo: $view-heigth * 1px;
-
 .chat-container {
+  color: $font-color;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,7 +48,6 @@ $demo: $view-heigth * 1px;
         max-width: 60%;
         overflow: hidden;
         border-radius: 8px;
-        color: white;
         padding: 5px;
         margin-bottom: 10px;
 
@@ -81,7 +78,7 @@ $demo: $view-heigth * 1px;
       border-radius: 25px;
       padding-left: 10px;
       outline: none;
-      color: white;
+      color: $font-color;
     }
 
     a {

@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ChatService {
-
   private baseUrl = 'http://localhost:3000/api';
   rooms: any = {};
   handle: string;
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
   update(room, message): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/${room}/update`, { message: message }, options)
+    return this.httpClient
+      .post(`${this.baseUrl}/${room}/update`, { message: message }, options)
       .toPromise();
   }
 
@@ -27,7 +26,8 @@ export class ChatService {
     const options = {
       withCredentials: true
     };
-    this.rooms[room] = this.httpClient.post(`${this.baseUrl}/${room}`, {room: room}, options)
+    this.rooms[room] = this.httpClient
+      .post(`${this.baseUrl}/${room}`, { room: room }, options)
       .toPromise()
       .then(result => {
         this.rooms[room] = result;

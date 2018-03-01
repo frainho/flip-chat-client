@@ -28,7 +28,9 @@
     border: none;
     border-bottom: 2px solid $primary-color;
     outline: none;
-    color: $primary-color;
+    background-color: #343434;
+    border-radius: 5px;
+    color: $font-color;
     text-align: center;
   }
 
@@ -36,7 +38,7 @@
     align-self: center;
     width: 50%;
     height: 40px;
-    color: white;
+    color: $font-color;
     line-height: 40px;
     background-color: $primary-color;
   }
@@ -46,6 +48,6 @@
   }
 
   ::placeholder {
-    color: $faded-primary-color
+    color: $faded-primary-color;
   }
 }
