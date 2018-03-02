@@ -13,12 +13,12 @@ export class JoinPageComponent implements OnInit {
   handleName: string = localStorage.getItem('handle');
   shortName = false;
 
-  constructor(private chatService: ChatService, private router: Router) {}
+  constructor(private chatService: ChatService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   joinChat(room, handle) {
-    if (handle.length >= 6) {
+    if (handle.length > 0) {
       this.shortName = false;
       localStorage.setItem('handle', handle);
       this.chatService
