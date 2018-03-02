@@ -7,7 +7,7 @@
   justify-content: center;
   padding: 10px;
   text-align: center;
-  color: $primary-color;
+  color: $secondary-color;
 
   h3 {
     margin-top: 0px;
@@ -17,9 +17,9 @@
     align-self: center;
     width: 50%;
     height: 40px;
-    color: white;
+    color: $primary-color;
     line-height: 40px;
-    background-color: $primary-color;
+    background-color: $secondary-color;
     text-decoration: none;
   }
 
