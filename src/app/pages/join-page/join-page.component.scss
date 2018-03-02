@@ -4,14 +4,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   padding: 10px;
   text-align: center;
 
   img {
-    width: 50%;
+    width: 40%;
     display: block;
     align-self: center;
+    padding-top:20px;
   }
 
   p {
