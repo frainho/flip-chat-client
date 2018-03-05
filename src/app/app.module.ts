@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 // => Pages
 import { JoinPageComponent } from './pages/join-page/join-page.component';
 import { ChatPageComponent } from './pages/chat-page/chat-page.component';
+import { ChatListComponent } from './pages/chat-list/chat-list.component';
 
 // => Services
 import { ChatService } from './services/chat.service';
@@ -21,7 +22,8 @@ import { DisconnectedComponent } from './pages/disconnected/disconnected.compone
 import { RequireHandleGuardService } from './guards/require-handle-guard.service';
 
 const routes: Routes = [
-  { path: '', component: JoinPageComponent },
+  { path: '', component: ChatListComponent },
+  { path: 'join', component: JoinPageComponent },
   {
     path: 'room/:id',
     component: ChatPageComponent,
@@ -36,7 +38,8 @@ const routes: Routes = [
     AppComponent,
     JoinPageComponent,
     ChatPageComponent,
-    DisconnectedComponent
+    DisconnectedComponent,
+    ChatListComponent
   ],
   imports: [
     BrowserModule,
@@ -50,4 +53,4 @@ const routes: Routes = [
   providers: [ChatService, SocketsService, RequireHandleGuardService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

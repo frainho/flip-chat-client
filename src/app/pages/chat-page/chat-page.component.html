@@ -1,6 +1,9 @@
 <div class="chat-container">
   <div class="chat-header">
     <h1>Room: {{roomId}}</h1>
+    <p>
+      <a (click)="leaveChat()">Chat list</a>
+    </p>
     <a (click)="disconnect()">
       <img src="../../../assets/img/exit.png" alt="disconnectChat">
     </a>

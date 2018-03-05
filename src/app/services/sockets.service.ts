@@ -9,7 +9,7 @@ export class SocketsService {
   apiUrl = environment.apiUrl;
   socket = io(this.apiUrl);
 
-  constructor() {}
+  constructor() { }
 
   emitMessage(fullMessage) {
     this.socket.emit('sending-message', fullMessage);
@@ -21,7 +21,6 @@ export class SocketsService {
 
   getMessages() {
     const observable = new Observable(observer => {
-      /* this.socket = io('http://localhost:3000'); */
       this.socket.on('new-message', message => {
         observer.next(message);
       });
@@ -30,6 +29,14 @@ export class SocketsService {
       };
     });
     return observable;
+  }
+
+  leaveRoom(room) {
+    this.socket.emit('leaving-room', room);
+  }
+
+  connect() {
+    this.socket.connect();
   }
 
   disconnect() {

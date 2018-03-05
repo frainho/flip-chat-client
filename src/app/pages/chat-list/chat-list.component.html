@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="list-page-header">
+    <h1>Flip Chat</h1>
+    <p>Latest Rooms</p>
+  </div>
+  <div class="room-list">
+    <ul>
+      <li *ngFor="let room of rooms">
+        <a [routerLink]="['/room', room]">{{room}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="list-page-footer">
+    <a [routerLink]="['/join']">Join/Create Room</a>
+    <p>Change your handle name...</p>
+    <div class="handle-area">
+      <input type="text" [(ngModel)]="handleName" #handle>
+      <a (click)="updateHandle(handle.value)">Save</a>
+    </div>
+  </div>
+</div>

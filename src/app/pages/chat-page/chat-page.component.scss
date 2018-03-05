@@ -19,11 +19,17 @@
     padding-left: 10px;
 
     h1 {
-      margin: auto 0;
+        margin: auto 0;
+    }
+
+    p {
+      align-self: center;
+      font-size: 20px;
     }
 
     a {
       height: 100%;
+      color: $secondary-color;
 
       img {
         height: 80%;

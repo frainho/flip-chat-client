@@ -30,13 +30,14 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
     private socketsService: SocketsService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
+    this.socketsService.connect();
     this.scrollToBottom();
     this.activatedRoute.params.subscribe(params => {
       this.roomId = String(params.id);
-      this.chatService.getRoom(this.roomId, false).then(data => {
+      this.chatService.getRoom(this.roomId, true).then(data => {
         this.messages = data.messages;
         this.identSender(this.messages);
         this.roomId = data.code;
@@ -63,6 +64,11 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
     }
   }
 
+  leaveChat() {
+    this.disconnect();
+    this.router.navigate(['/']);
+  }
+
   disconnect() {
     this.socketsService.disconnect();
     this.router.navigate(['/disconnect']);
@@ -83,6 +89,6 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
   scrollToBottom(): void {
     try {
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch (err) {}
+    } catch (err) { }
   }
 }
