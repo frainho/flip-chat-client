@@ -15,7 +15,7 @@
     </ul>
   </div>
   <div class="chat-typer">
-    <form (ngSubmit)="sendMessage(message.value)" #form="ngForm" novalidate>
+    <form (ngSubmit)="sendMessage(message.value)" #form="ngForm" novalidate autocomplete="off">
       <input type="text" [(ngModel)]="messageText" name="messageInput" placeholder="Type your message here" #message>
       <button type="submit">Send</button>
     </form>

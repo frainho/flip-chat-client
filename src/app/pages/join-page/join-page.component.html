@@ -7,7 +7,7 @@
   <div class="container-body">
     <p class="passive-text" *ngIf="!newRoom">Join a chat room</p>
     <p class="passive-text" *ngIf="newRoom">Create a chat room</p>
-    <form (ngSubmit)="joinChat(roomCode, password.value)" #form="ngForm" novalidate>
+    <form (ngSubmit)="joinChat(roomCode, password.value)" #form="ngForm" novalidate autocomplete="off">
       <div>
         <label class="passive-text" for="code">Room code</label>
         <input type="text" [(ngModel)]="roomCode" (ngModelChange)="checkRoom()" name="code">
