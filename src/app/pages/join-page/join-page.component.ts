@@ -18,7 +18,7 @@ export class JoinPageComponent implements OnInit {
   constructor(private chatService: ChatService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    if (localStorage.getItem('rooms') !== '') {
+    if (localStorage.getItem('rooms') !== null) {
       this.roomList = JSON.parse(localStorage.getItem('rooms'));
     }
     this.chatService.getRooms().then((result) => {
@@ -44,6 +44,7 @@ export class JoinPageComponent implements OnInit {
   }
 
   joinChat(room, password) {
+    console.log(this.roomList);
     if (this.roomList.length > 10) {
       this.roomList.pop();
     } else if (this.roomList.indexOf(room) === -1) {
