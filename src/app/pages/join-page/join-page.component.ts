@@ -28,7 +28,6 @@ export class JoinPageComponent implements OnInit {
     this.route
       .params
       .subscribe(params => {
-        console.log(params);
         this.roomCode = params['id'] || Math.floor(100000 + Math.random() * 900000).toString();
       });
   }
@@ -44,7 +43,7 @@ export class JoinPageComponent implements OnInit {
     }
   }
 
-  joinChat(room, password, authRequired) {
+  joinChat(room, password) {
     if (this.roomList.length > 10) {
       this.roomList.pop();
     } else if (this.roomList.indexOf(room) === -1) {
