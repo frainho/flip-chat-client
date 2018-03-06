@@ -1,19 +1,20 @@
 <div class="container">
   <div class="list-page-header">
     <h1>Flip Chat</h1>
-    <p>Your latest rooms</p>
   </div>
   <div class="room-list">
+    <p class="passive-text">Your latest rooms</p>
     <ul>
-      <li *ngFor="let room of rooms" (click)="connectToRoom(room)">
+      <li *ngFor="let room of rooms">
         <p>{{room}}</p>
+        <a (click)="connectToRoom(room)">Open</a>
       </li>
     </ul>
   </div>
   <div class="list-page-footer">
 
     <a *ngIf="!handleMissing" [routerLink]="['/join']">Join/Create Room</a>
-    <p>Change your handle name...</p>
+    <p class="passive-text">Change your handle name...</p>
     <div class="handle-area">
       <input type="text" [(ngModel)]="handleName" #handle [ngClass]="{'handle-missing': handleMissing}">
       <a (click)="updateHandle(handle.value)">Save</a>

@@ -1,76 +1,78 @@
 @import '../../../sass/abstracts/_variables.scss';
-
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  padding: 10px;
-  text-align: center;
-
-  img {
-    width: 40%;
-    display: block;
-    align-self: center;
-    padding-top:20px;
-  }
-
-  p {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  form {
-    .has-error {
-      border-color: red;
-    }
-
-    label {
-      display: block
-    }
-  }
-
-  input {
-    height: 40px;
-    width: 80%;
-    align-self: center;
-    margin-bottom: 15px;
-    font-size: 30px;
-    border: none;
-    border-bottom: 2px solid $primary-color;
-    outline: none;
-    background-color: #343434;
-    border-radius: 5px;
-    color: $secondary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 10px;
     text-align: center;
-  }
-
-  .passwordNeeded {
-    border-bottom: 1px solid red;
-  }
-
-  button {
-    border: none;
-    border-radius: 5px;
-    width: 50%;
-    color: $primary-color;
-    line-height: 40px;
-    background-color: $secondary-color;
-    margin-bottom: 30px;
-    outline: none
-  }
-
-  a {
-    display: block;
-    color: $secondary-color;
-  }
-
-  button:active {
-    background-color: $strong-primary-color;
-    color: white;
-  }
-
-  ::placeholder {
-    color: $faded-primary-color;
-  }
+    .header {
+        height: 10%;
+        align-self: flex-start;
+        a {
+            height: 100%;
+            img {
+                height: 100%;
+            }
+        }
+    }
+    .container-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .passive-text {
+            color: grey;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        form {
+            .has-error {
+                border-color: red;
+            }
+            label {
+                display: block
+            }
+        }
+        input {
+            height: 40px;
+            width: 80%;
+            align-self: center;
+            margin-bottom: 15px;
+            font-size: 30px;
+            border: none;
+            border-bottom: 2px solid $primary-color;
+            outline: none;
+            background-color: #343434;
+            border-radius: 5px;
+            color: $secondary-color;
+            text-align: center;
+        }
+        .passwordNeeded {
+            border-bottom: 1px solid red;
+        }
+        button {
+            border: none;
+            border-radius: 5px;
+            width: 50%;
+            color: $primary-color;
+            line-height: 40px;
+            background-color: $secondary-color;
+            margin-bottom: 30px;
+            outline: none
+        }
+        a {
+            display: block;
+            color: $secondary-color;
+        }
+        button:active {
+            background-color: $strong-primary-color;
+            color: white;
+        }
+         ::placeholder {
+            color: $faded-primary-color;
+        }
+    }
 }

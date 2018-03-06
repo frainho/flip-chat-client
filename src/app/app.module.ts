@@ -16,14 +16,12 @@ import { ChatListComponent } from './pages/chat-list/chat-list.component';
 // => Services
 import { ChatService } from './services/chat.service';
 import { SocketsService } from './services/sockets.service';
-import { DisconnectedComponent } from './pages/disconnected/disconnected.component';
 
 const routes: Routes = [
   { path: '', component: ChatListComponent },
   { path: 'join', component: JoinPageComponent },
   { path: 'join/:id', component: JoinPageComponent },
   { path: 'room/:id', component: ChatPageComponent },
-  { path: 'disconnect', component: DisconnectedComponent },
   { path: '**', redirectTo: '/' }
 ];
 
@@ -32,7 +30,6 @@ const routes: Routes = [
     AppComponent,
     JoinPageComponent,
     ChatPageComponent,
-    DisconnectedComponent,
     ChatListComponent
   ],
   imports: [

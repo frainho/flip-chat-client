@@ -2,16 +2,13 @@
   "short_name": "Flip Chat",
   "name": "Flip Chat",
   "start_url": "/",
-
   "theme_color": "#343434",
   "background_color": "#343434",
-
   "display": "standalone",
   "orientation": "portrait",
-
   "icons": [
     {
-      "src": "./assets/img/248-512.png",
+      "src": "./assets/img/flip-chat.png",
       "sizes": "512x512",
       "type": "image/png"
     }

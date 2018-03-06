@@ -1,106 +1,95 @@
 @import '../../../sass/abstracts/_variables.scss';
-
 .container {
-  height: 100%;
-  display:flex;
-  flex-direction: column;
-
-  .list-page-header {
-    height: 10%;
-    min-height: 50px;
-    max-height: 80px;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
-
-    h1 {
-      margin: auto 0;
-      padding-left: 10px;
+    flex-direction: column;
+    .list-page-header {
+        height: 10%;
+        min-height: 50px;
+        max-height: 80px;
+        display: flex;
+        justify-content: center;
+        h1 {
+            margin: auto 0;
+            padding-left: 10px;
+        }
     }
-    p {
-      align-self: center;
-      padding-right: 10px;
-    }
-  }
-  
-  .room-list {
-    overflow: auto;
-    max-height: 80%;
-    flex-grow: 1;
-
-    ul {
-    list-style: none;
-    padding: 0px 10px;
-
-    li {
-      border-bottom: 1px solid #eee;
-      font-size: 40px;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-
-      a {
-        text-decoration: none;
-        color: $secondary-color;
-      }
-    }
-  }
-
-  }
-
-  .list-page-footer {
-    padding: 5px 0;
-    a {
-      background-color: $secondary-color;
-      color: $primary-color;
-      line-height: 40px;
-      text-align: center;
-      border: none;
-      border-radius: 5px;
-    }
-
-    a:first-child {
-      margin: 0 auto;
-      display:block;
-      width: 80%;
-      margin-bottom: 10px;
-      text-decoration: none;
-    }
-
-    a:active {
-      background-color: $strong-primary-color;
-      color: white;
-    }
-
-    p {
-      text-align: center;
-    }
-
-    .handle-area {
-      display:flex;
-      justify-content: center;
-      
-      .handle-missing {
-        border: 1px solid red;
-      }
-      
-      input {
-        height: 40px;
-        width: 80%;
+    .passive-text {
         align-self: center;
-        font-size: 30px;
-        border: none;
-        border-bottom: 2px solid $primary-color;
-        outline: none;
-        background-color: #343434;
-        border-radius: 5px;
-        color: $secondary-color;
-        text-align: center;
-      }
-      a {
-        width: 15%;
-        outline: none;
-      }
+        padding-left: 10px;
+        color: $passive-color;
     }
-
-  }
-
+    .room-list {
+        overflow: auto;
+        max-height: 80%;
+        flex-grow: 1;
+        ul {
+            list-style: none;
+            padding: 0px 10px;
+            li {
+                font-size: 40px;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+                a {
+                    font-size: 20px;
+                    text-decoration: none;
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    .list-page-footer {
+        padding: 5px 0;
+        a {
+            background-color: $secondary-color;
+            color: $primary-color;
+            line-height: 40px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+        }
+        a:first-child {
+            margin: 0 auto;
+            display: block;
+            width: 80%;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+        a:active {
+            background-color: $strong-primary-color;
+            color: white;
+        }
+        p {
+            text-align: center;
+        }
+        .handle-area {
+            display: flex;
+            justify-content: center;
+            .handle-missing {
+                border: 1px solid red;
+            }
+            input {
+                height: 40px;
+                width: 80%;
+                align-self: center;
+                font-size: 30px;
+                border: none;
+                border-bottom: 2px solid $primary-color;
+                outline: none;
+                background-color: #343434;
+                border-radius: 5px;
+                color: $secondary-color;
+                text-align: center;
+            }
+            a {
+                width: 15%;
+                outline: none;
+            }
+        }
+    }
 }

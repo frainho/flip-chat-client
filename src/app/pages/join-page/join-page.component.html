@@ -1,18 +1,24 @@
 <div class="container">
-  <img src="../../../assets/img/248-512.png" alt="logo">
-  <p *ngIf="!newRoom">Join a chat room</p>
-  <p *ngIf="newRoom">Create a chat room</p>
-  <form (ngSubmit)="joinChat(roomCode, password.value)" #form="ngForm" novalidate>
-    <div>
-      <label for="code">Room code</label>
-      <input type="text" [(ngModel)]="roomCode" (ngModelChange)="checkRoom()" name="code">
-    </div>
-    <div>
-      <label for="code">Password</label>
-      <input type="password" #password [ngClass]="{'passwordNeeded': needsPassword}">
-    </div>
-    <button *ngIf="!newRoom">Join Room</button>
-    <button *ngIf="newRoom">Create Room</button>
-    <a [routerLink]="['/']">Back to chat list</a>
-  </form>
+  <div class="header">
+    <a [routerLink]="['/']">
+      <img src="../../../assets/img/exit.png" alt="exit">
+    </a>
+  </div>
+  <div class="container-body">
+    <p class="passive-text" *ngIf="!newRoom">Join a chat room</p>
+    <p class="passive-text" *ngIf="newRoom">Create a chat room</p>
+    <form (ngSubmit)="joinChat(roomCode, password.value)" #form="ngForm" novalidate>
+      <div>
+        <label class="passive-text" for="code">Room code</label>
+        <input type="text" [(ngModel)]="roomCode" (ngModelChange)="checkRoom()" name="code">
+      </div>
+      <div>
+        <label class="passive-text" for="code">Password</label>
+        <input type="password" #password [ngClass]="{'passwordNeeded': needsPassword}">
+      </div>
+      <button *ngIf="!newRoom">Join Room</button>
+      <button *ngIf="newRoom">Create Room</button>
+      <a class="passive-text" [routerLink]="['/']">Back to chat list</a>
+    </form>
+  </div>
 </div>

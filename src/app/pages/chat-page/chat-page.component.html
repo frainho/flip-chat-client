@@ -1,12 +1,9 @@
 <div class="chat-container">
   <div class="chat-header">
-    <h1>Room: {{roomId}}</h1>
-    <p>
-      <a (click)="leaveChat()">Chat list</a>
-    </p>
-    <a (click)="disconnect()">
-      <img src="../../../assets/img/exit.png" alt="disconnectChat">
+    <a (click)="leaveChat()">
+      <img src="../../../assets/img/exit.png" alt="exit">
     </a>
+    <h1>{{roomId}}</h1>
   </div>
   <div class="chat-body" #scrollMe>
     <ul *ngIf="messages">
