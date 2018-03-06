@@ -31,8 +31,8 @@ export class SocketsService {
     return observable;
   }
 
-  connect() {
-    this.socket.connect();
+  leaveChat(room) {
+    this.socket.emit('leave-room', room);
   }
 
   disconnect() {

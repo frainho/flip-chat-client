@@ -70,7 +70,13 @@ export class JoinPageComponent implements OnInit {
               });
           }
         } else if (this.allRooms[i].code === room && !this.allRooms[i].isProtected) {
-          this.router.navigate([`/room/${room}`]);
+          if (password) {
+            this.needsPassword = true;
+          } else {
+            this.needsPassword = false;
+            this.router.navigate([`/room/${room}`]);
+          }
+
         }
       }
     }

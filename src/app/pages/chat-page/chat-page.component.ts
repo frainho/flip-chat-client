@@ -33,7 +33,6 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
   ) { }
 
   ngOnInit() {
-    this.socketsService.connect();
     this.scrollToBottom();
     this.activatedRoute.params.subscribe(params => {
       this.roomId = String(params.id);
@@ -65,7 +64,7 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
   }
 
   leaveChat() {
-    this.disconnect();
+    this.socketsService.leaveChat(this.roomId);
     this.router.navigate(['/']);
   }
 
