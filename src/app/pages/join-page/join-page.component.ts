@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { SocketsService } from '../../services/sockets.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-join-page',
@@ -9,33 +9,71 @@ import { Router } from '@angular/router';
   styleUrls: ['./join-page.component.scss']
 })
 export class JoinPageComponent implements OnInit {
-  randomRoom = Math.floor(100000 + Math.random() * 900000);
-  handleName: string = localStorage.getItem('handle');
-  shortName = false;
+  roomCode: String;
   roomList: Array<string> = [];
+  newRoom = true;
+  allRooms: any;
+  needsPassword = false;
 
-  constructor(private chatService: ChatService, private router: Router) { }
+  constructor(private chatService: ChatService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     if (localStorage.getItem('rooms') !== '') {
       this.roomList = JSON.parse(localStorage.getItem('rooms'));
     }
+    this.chatService.getRooms().then((result) => {
+      this.allRooms = result;
+      this.checkRoom();
+    });
+    this.route
+      .params
+      .subscribe(params => {
+        console.log(params);
+        this.roomCode = params['id'] || Math.floor(100000 + Math.random() * 900000).toString();
+      });
   }
 
-  joinChat(room, handle) {
-    if (handle.length > 0) {
-      this.shortName = false;
-      localStorage.setItem('handle', handle);
-      if (this.roomList.length > 10) {
-        this.roomList.pop();
+  checkRoom() {
+    for (let i = 0; i < this.allRooms.length; i++) {
+      if (this.allRooms[i].code === this.roomCode) {
+        this.newRoom = false;
+        break;
+      } else {
+        this.newRoom = true;
       }
+    }
+  }
+
+  joinChat(room, password, authRequired) {
+    if (this.roomList.length > 10) {
+      this.roomList.pop();
+    } else if (this.roomList.indexOf(room) === -1) {
       this.roomList.unshift(room);
-      localStorage.setItem('rooms', JSON.stringify(this.roomList));
-      this.chatService
-        .getRoom(room, false)
-        .then(() => this.router.navigate([`/room/${room}`]));
+    }
+    localStorage.setItem('rooms', JSON.stringify(this.roomList));
+    if (this.newRoom) {
+      this.chatService.createRoom(room, password).then(() => this.router.navigate([`/room/${room}`]));
     } else {
-      this.shortName = true;
+      for (let i = 0; i < this.allRooms.length; i++) {
+        if (this.allRooms[i].code === room && this.allRooms[i].isProtected) {
+          if (!password) {
+            this.needsPassword = true;
+            return;
+          } else {
+            this.needsPassword = false;
+            this.chatService.authRoom(room, password)
+              .then((result: any) => {
+                if (result.authorized) {
+                  this.router.navigate([`/room/${room}`]);
+                } else {
+                  this.needsPassword = true;
+                }
+              });
+          }
+        } else if (this.allRooms[i].code === room && !this.allRooms[i].isProtected) {
+          this.router.navigate([`/room/${room}`]);
+        }
+      }
     }
   }
 }

@@ -10,7 +10,7 @@ export class ChatService {
   rooms: any = {};
   handle: string;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   update(room, message): Promise<any> {
     const options = {
@@ -21,20 +21,46 @@ export class ChatService {
       .toPromise();
   }
 
-  getRoom(room, bypassCache = true): Promise<any> {
-    if (!bypassCache && this.rooms[room]) {
-      return Promise.resolve(this.rooms[room]);
-    }
+  getRoom(room): Promise<any> {
     const options = {
       withCredentials: true
     };
-    this.rooms[room] = this.httpClient
-      .post(`${this.baseUrl}/${room}`, { room: room }, options)
+    return this.httpClient
+      .post(`${this.baseUrl}/${room}`, options)
       .toPromise()
-      .then(result => {
-        this.rooms[room] = result;
-        return result;
-      });
-    return this.rooms[room];
+      .then(result => result);
   }
+
+  createRoom(room, password) {
+    const options = {
+      withCredentials: true
+    };
+    const data = {
+      room: room,
+      password: password,
+    };
+    return this.httpClient.post(`${this.baseUrl}/new`, data, options)
+      .toPromise().then(result => result);
+  }
+
+  getRooms() {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/all-rooms`, options)
+      .toPromise().then(result => result);
+  }
+
+  authRoom(room, password) {
+    const options = {
+      withCredentials: true
+    };
+    const data = {
+      room,
+      password
+    };
+    return this.httpClient.post(`${this.baseUrl}/auth-room`, data, options)
+      .toPromise().then(result => result);
+  }
+
 }

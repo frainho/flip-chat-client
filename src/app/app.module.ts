@@ -24,6 +24,7 @@ import { RequireHandleGuardService } from './guards/require-handle-guard.service
 const routes: Routes = [
   { path: '', component: ChatListComponent },
   { path: 'join', component: JoinPageComponent },
+  { path: 'join/:id', component: JoinPageComponent },
   {
     path: 'room/:id',
     component: ChatPageComponent,

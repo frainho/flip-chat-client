@@ -1,12 +1,12 @@
 <div class="container">
   <div class="list-page-header">
     <h1>Flip Chat</h1>
-    <p>Latest Rooms</p>
+    <p>Your latest Rooms</p>
   </div>
   <div class="room-list">
     <ul>
       <li *ngFor="let room of rooms">
-        <a [routerLink]="['/room', room]">{{room}}</a>
+        <a (click)="connectToRoom(room)">{{room}}</a>
       </li>
     </ul>
   </div>

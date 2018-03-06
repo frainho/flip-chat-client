@@ -31,10 +31,6 @@ export class SocketsService {
     return observable;
   }
 
-  leaveRoom(room) {
-    this.socket.emit('leaving-room', room);
-  }
-
   connect() {
     this.socket.connect();
   }

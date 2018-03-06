@@ -24,6 +24,10 @@
     .has-error {
       border-color: red;
     }
+
+    label {
+      display: block
+    }
   }
 
   input {
@@ -39,6 +43,10 @@
     border-radius: 5px;
     color: $secondary-color;
     text-align: center;
+  }
+
+  .passwordNeeded {
+    border-bottom: 1px solid red;
   }
 
   button {

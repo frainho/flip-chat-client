@@ -37,7 +37,7 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
     this.scrollToBottom();
     this.activatedRoute.params.subscribe(params => {
       this.roomId = String(params.id);
-      this.chatService.getRoom(this.roomId, true).then(data => {
+      this.chatService.getRoom(this.roomId).then(data => {
         this.messages = data.messages;
         this.identSender(this.messages);
         this.roomId = data.code;
