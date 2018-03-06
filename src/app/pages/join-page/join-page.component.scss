@@ -56,10 +56,18 @@
     color: $primary-color;
     line-height: 40px;
     background-color: $secondary-color;
+    margin-bottom: 30px;
+    outline: none
+  }
+
+  a {
+    display: block;
+    color: $secondary-color;
   }
 
   button:active {
     background-color: $strong-primary-color;
+    color: white;
   }
 
   ::placeholder {

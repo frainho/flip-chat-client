@@ -11,10 +11,16 @@ import { ChatService } from '../../services/chat.service';
 export class ChatListComponent implements OnInit {
   rooms: Array<string>;
   handleName = localStorage.getItem('handle');
+  handleMissing: Boolean;
 
   constructor(private chatService: ChatService, private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('handle') === null || localStorage.getItem('handle') === '') {
+      this.handleMissing = true;
+    } else {
+      this.handleMissing = false;
+    }
     if (localStorage.getItem('rooms') !== '') {
       this.rooms = JSON.parse(localStorage.getItem('rooms'));
     }
@@ -23,6 +29,7 @@ export class ChatListComponent implements OnInit {
   updateHandle(newHandle) {
     if (newHandle !== '') {
       localStorage.setItem('handle', newHandle);
+      this.handleMissing = false;
     } else {
       this.handleName = localStorage.getItem('handle');
     }

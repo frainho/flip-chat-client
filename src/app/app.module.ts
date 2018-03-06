@@ -18,18 +18,11 @@ import { ChatService } from './services/chat.service';
 import { SocketsService } from './services/sockets.service';
 import { DisconnectedComponent } from './pages/disconnected/disconnected.component';
 
-// => Guards
-import { RequireHandleGuardService } from './guards/require-handle-guard.service';
-
 const routes: Routes = [
   { path: '', component: ChatListComponent },
   { path: 'join', component: JoinPageComponent },
   { path: 'join/:id', component: JoinPageComponent },
-  {
-    path: 'room/:id',
-    component: ChatPageComponent,
-    canActivate: [RequireHandleGuardService]
-  },
+  { path: 'room/:id', component: ChatPageComponent },
   { path: 'disconnect', component: DisconnectedComponent },
   { path: '**', redirectTo: '/' }
 ];
@@ -51,7 +44,7 @@ const routes: Routes = [
       enabled: environment.production
     })
   ],
-  providers: [ChatService, SocketsService, RequireHandleGuardService],
+  providers: [ChatService, SocketsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

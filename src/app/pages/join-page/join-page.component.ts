@@ -44,7 +44,6 @@ export class JoinPageComponent implements OnInit {
   }
 
   joinChat(room, password) {
-    console.log(this.roomList);
     if (this.roomList.length > 10) {
       this.roomList.pop();
     } else if (this.roomList.indexOf(room) === -1) {
