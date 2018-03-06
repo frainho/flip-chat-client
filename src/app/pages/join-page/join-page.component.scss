@@ -22,7 +22,7 @@
         flex-direction: column;
         justify-content: center;
         .passive-text {
-            color: grey;
+            color: $passive-color;
         }
         p {
             font-size: 20px;
