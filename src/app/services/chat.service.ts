@@ -40,7 +40,8 @@ export class ChatService {
       password: password,
     };
     return this.httpClient.post(`${this.baseUrl}/new`, data, options)
-      .toPromise().then(result => result);
+      .toPromise()
+      .then(result => result);
   }
 
   getRooms() {
@@ -48,7 +49,8 @@ export class ChatService {
       withCredentials: true
     };
     return this.httpClient.get(`${this.baseUrl}/all-rooms`, options)
-      .toPromise().then(result => result);
+      .toPromise()
+      .then(result => result);
   }
 
   authRoom(room, password) {
@@ -60,7 +62,8 @@ export class ChatService {
       password
     };
     return this.httpClient.post(`${this.baseUrl}/auth-room`, data, options)
-      .toPromise().then(result => result);
+      .toPromise()
+      .then(result => result);
   }
 
 }

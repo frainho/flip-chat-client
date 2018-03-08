@@ -34,8 +34,4 @@ export class SocketsService {
   leaveChat(room) {
     this.socket.emit('leave-room', room);
   }
-
-  disconnect() {
-    this.socket.disconnect();
-  }
 }

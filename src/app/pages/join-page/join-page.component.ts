@@ -13,7 +13,7 @@ export class JoinPageComponent implements OnInit {
   roomList: Array<string> = [];
   newRoom = true;
   allRooms: any;
-  needsPassword = false;
+  passwordError = false;
 
   constructor(private chatService: ChatService, private router: Router, private route: ActivatedRoute) { }
 
@@ -51,29 +51,30 @@ export class JoinPageComponent implements OnInit {
     }
     localStorage.setItem('rooms', JSON.stringify(this.roomList));
     if (this.newRoom) {
-      this.chatService.createRoom(room, password).then(() => this.router.navigate([`/room/${room}`]));
+      this.chatService.createRoom(room, password)
+        .then(() => this.router.navigate([`/room/${room}`]));
     } else {
       for (let i = 0; i < this.allRooms.length; i++) {
         if (this.allRooms[i].code === room && this.allRooms[i].isProtected) {
           if (!password) {
-            this.needsPassword = true;
+            this.passwordError = true;
             return;
           } else {
-            this.needsPassword = false;
+            this.passwordError = false;
             this.chatService.authRoom(room, password)
               .then((result: any) => {
                 if (result.authorized) {
                   this.router.navigate([`/room/${room}`]);
                 } else {
-                  this.needsPassword = true;
+                  this.passwordError = true;
                 }
               });
           }
         } else if (this.allRooms[i].code === room && !this.allRooms[i].isProtected) {
           if (password) {
-            this.needsPassword = true;
+            this.passwordError = true;
           } else {
-            this.needsPassword = false;
+            this.passwordError = false;
             this.router.navigate([`/room/${room}`]);
           }
 

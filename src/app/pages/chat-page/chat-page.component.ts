@@ -68,11 +68,6 @@ export class ChatPageComponent implements OnInit, AfterViewChecked {
     this.router.navigate(['/']);
   }
 
-  disconnect() {
-    this.socketsService.disconnect();
-    this.router.navigate(['/disconnect']);
-  }
-
   identSender(messages) {
     for (let i = 0; i < messages.length; i++) {
       if (messages[i].handle === localStorage.getItem('handle')) {
